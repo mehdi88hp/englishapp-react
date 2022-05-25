@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import { themeChange } from 'theme-change'
 import Sidebar from '../layouts/sidebar'
+import { Search } from '../components/modules'
 
 
 const Home: NextPage = () => {
@@ -24,11 +25,12 @@ const Home: NextPage = () => {
       </Head>
 
       
-      <div className='container mx-auto'>
+      <div className='container mx-auto flex-row flex'>
         {/* Sidebar */}
         <Sidebar currentPage={"home"}/>
 
         {/* Main */}
+        <Search/>
         
       </div>
 

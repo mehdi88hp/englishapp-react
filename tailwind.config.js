@@ -6,9 +6,6 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
       xl: '1440px',
     },
     extend: {
@@ -37,6 +34,7 @@ module.exports = {
           "base-200": "#787979",
           "base-content": "#303030",
           "info":"#3ABFF8",
+          "info-content":"#FAF7F2",
           "success": "#49B0AA",
           "warning": "#FBBD23",
           "error": "#FA8B8B",

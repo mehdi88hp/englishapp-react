@@ -24,17 +24,20 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      
+
       <div className='container mx-auto flex-row flex'>
         {/* Sidebar */}
-        <Sidebar currentPage={"home"}/>
+        <Sidebar currentPage={"home"} />
 
         {/* Main */}
-        <Search/>
-        
+        <div className='pl-14 pt-4 w-4/5'>
+          <Search />
+        </div>
+
+
       </div>
 
-      
+
 
 
       {/* <select data-choose-theme>

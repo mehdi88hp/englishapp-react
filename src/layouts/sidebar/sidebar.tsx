@@ -8,7 +8,7 @@ interface props {
 
 export default function Sidebar({ currentPage }: props) {
     return (
-        <div className='w-72 flex flex-col h-not-full sticky border-2 border-neutral rounded-2xl my-3 px-5 font-avenir font-medium'>
+        <div className='w-1/5 flex flex-col h-not-full sticky border-2 border-neutral rounded-2xl my-3 px-5 font-avenir font-medium'>
             {/* ----------Profile------------- */}
             <ProfileWidget />
 

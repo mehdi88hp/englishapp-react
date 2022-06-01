@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Search() {
   return (
-    <div className='relative '>
+    <div className='relative basis-full'>
       <div className='w-full border-2 border-neutral rounded-2xl h-15 relative flex flex-row overflow-hidden z-10 bg-base-100'>
         <div className='w-16 bg-info-content h-15 border-neutral border-r-2 justify-center items-center flex rounded-l-2xl'>
           <div className='relative w-6 h-6'>

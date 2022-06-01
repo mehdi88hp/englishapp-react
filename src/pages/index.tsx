@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { themeChange } from 'theme-change'
 import Sidebar from '../layouts/sidebar'
 import { Search } from '../components/modules'
+import { Toggle } from '../components/elements'
 
 
 const Home: NextPage = () => {
@@ -31,14 +32,25 @@ const Home: NextPage = () => {
 
         {/* Main */}
         <div className='pl-14 pt-4 w-4/5'>
-          <Search />
+          <div className='flex flex-row'>
+            <Search />
+            <div className="dropdown dropdown-hover z-10 relative">
+              <label className="btn rounded-2xl bg-base-100 text-base-content hover:bg-secondary border-2 h-15 relative z-10 mb-4">Default theme</label>
+              <ul className="dropdown-content menu p-2 shadow bg-base-100 w-52 border-2 rounded-2xl border-neutral">
+                <li><a>Item 1</a></li>
+                <li><a>Item 2</a></li>
+              </ul>
+              <div className='flex-none w-full mb-10 absolute t border-2 border-neutral rounded-2xl h-15 top-2 left-2 bg-secondary'>
+              </div>
+            </div>
+            <Toggle />
+
+          </div>
         </div>
-
-
       </div>
 
 
-
+      {/* z-10 relative before:absolute before:top-2 before:border-neutral before:left-2 before:-z-10 before:border-2 before:rounded-2xl before:w-full before:h-full */}
 
       {/* <select data-choose-theme>
         <option value="">Default</option>

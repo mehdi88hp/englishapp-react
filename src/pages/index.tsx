@@ -4,15 +4,19 @@ import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import { themeChange } from 'theme-change'
 import Sidebar from '../layouts/sidebar'
-import { Search } from '../components/modules'
+import { BookCard, Search } from '../components/modules'
 import { Toggle } from '../components/elements'
+import BrowseBook from '../layouts/browse-book'
+import requests from '../../utils/requests'
 
 
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
+  console.log("result", props)
 
   useEffect(() => {
     themeChange(false)
     // 👆 false parameter is required for react project
+
   }, [])
 
   const [diretion, setDirection] = useState('ltr');
@@ -32,43 +36,44 @@ const Home: NextPage = () => {
 
         {/* Main */}
         <div className='pl-14 pt-4 w-4/5'>
-          <div className='flex flex-row'>
+          <div className='flex flex-row gap-6'>
             <Search />
-            <div className="dropdown dropdown-hover z-10 relative">
-              <label className="btn rounded-2xl bg-base-100 text-base-content hover:bg-secondary border-2 h-15 relative z-10 mb-4">Default theme</label>
-              <ul className="dropdown-content menu p-2 shadow bg-base-100 w-52 border-2 rounded-2xl border-neutral">
-                <li><a>Item 1</a></li>
-                <li><a>Item 2</a></li>
-              </ul>
-              <div className='flex-none w-full mb-10 absolute t border-2 border-neutral rounded-2xl h-15 top-2 left-2 bg-secondary'>
+            <div className='gap-6 flex flex-row'>
+              <div className="dropdown dropdown-hover z-10 relative">
+                <label className="btn rounded-2xl bg-base-100 text-base-content hover:bg-secondary border-2 h-15 relative z-10 mb-4">theme</label>
+                <ul className="dropdown-content menu p-2 shadow bg-base-100 w-52 border-2 rounded-2xl border-neutral">
+                  <li><a data-set-theme="light">Light</a></li>
+                  <li><a data-set-theme="dark">Dark</a></li>
+                  <li><a data-set-theme="cupcake">Item 2</a></li>
+                </ul>
+                <div className='flex-none w-full mb-10 absolute t border-2 border-neutral rounded-2xl h-15 top-2 left-2 bg-secondary'>
+                </div>
               </div>
+              <Toggle />
             </div>
-            <Toggle />
-
+          </div>
+          <div className='flex flex-row'>
+            <BrowseBook />
+          </div>
+          <div>
           </div>
         </div>
       </div>
 
-
-      {/* z-10 relative before:absolute before:top-2 before:border-neutral before:left-2 before:-z-10 before:border-2 before:rounded-2xl before:w-full before:h-full */}
-
-      {/* <select data-choose-theme>
-        <option value="">Default</option>
-        <option value="dark">Dark</option>
-        <option value="hp">hp</option>
-        <option value="cupcake">mytheme</option>
-      </select>
-      <div className="group flex items-center">
-        <div>sdfsdf</div>
-        <div className="ltr:ml-20 rtl:mr-3">
-          <p className="text-sm font-medium text-slate-700 group-hover:text-slate-900">hosseinhp</p>
-          <p className="text-sm font-medium text-slate-500 group-hover:text-slate-700">hosseinppppppppppppppppp</p>
-        </div>
-      </div>
-
-      <button onClick={() => { diretion === 'ltr' ? setDirection("rtl") : setDirection("ltr") }}>change direction</button> */}
     </div>
   )
 }
 
 export default Home
+
+export async function getServerSideProps(context: any) {
+
+  const genre = context.query.genre
+
+  const request = await fetch(requests[genre]?.url || requests.fetchTerending.url).then((res) => res.json())
+  
+
+  return {
+    props: request
+  }
+}

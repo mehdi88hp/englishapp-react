@@ -9,6 +9,9 @@ module.exports = {
       xl: '1440px',
     },
     extend: {
+      width:{
+        '46': '11.45rem'
+      },
       height: {
         '15': '3.38rem',
         'not-full': '97vh'
@@ -18,7 +21,10 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui") ,
+    require('tailwind-scrollbar-hide')
+  ],
   daisyui: {
     themes: [
       {

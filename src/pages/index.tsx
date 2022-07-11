@@ -59,7 +59,6 @@ const Home: NextPage = (props) => {
           </div>
         </div>
       </div>
-
     </div>
   )
 }

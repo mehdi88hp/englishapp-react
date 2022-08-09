@@ -17,19 +17,25 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
-  },
-  "baseUrl": "src",
-  "paths": {
-    "@components/*": [
-      "src/components/*"
-    ],
-    "@pages/*": [
-      "src/pages/*"
-    ],
-    "@layouts/*": [
-      "src/layouts/*"
-    ]
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@slices/*": [
+        "slices/*"
+      ],
+      "@base/*": [
+        "/*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",
